@@ -1,4 +1,4 @@
-# <Project Name>
+#interviewX
 
 > Replace every angle-bracket placeholder below. The hygiene check in CI will
 > fail until you do.
@@ -7,17 +7,17 @@
 
 | Roll No. | Name | GitHub username |
 |---|---|---|
-| <roll> | <name> | <username> |
+| 24ESKCS085 | BHAVISHYA MEENA | b240584-droid |
 
 ## About
 
-<Two or three sentences on what this application does.>
+
 
 ## Tech stack
 
-- Frontend: <e.g. React>
-- Backend: <e.g. Node.js / Express>
-- Database: <e.g. PostgreSQL>
+- Frontend: react,taiwindcss,motion,react-icons
+- Backend: node.js,express.js,axios,redux,multer,openrouter
+- Database: mongodb-atlas
 
 ## Running locally
 
