@@ -1,0 +1,31 @@
+{
+  "title": "interviewX - Service Overview",
+  "uid": "interviewx-overview",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "interviewX up",
+      "gridPos": { "x": 0, "y": 0, "w": 6, "h": 4 },
+      "targets": [{ "expr": "interviewx_up", "refId": "A" }],
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] } }
+    },
+    {
+      "type": "timeseries",
+      "title": "HTTP requests (total)",
+      "gridPos": { "x": 6, "y": 0, "w": 12, "h": 8 },
+      "targets": [{ "expr": "interviewx_http_requests_total", "refId": "A" }]
+    },
+    {
+      "type": "timeseries",
+      "title": "Request rate (per minute)",
+      "gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 },
+      "targets": [{ "expr": "rate(interviewx_http_requests_total[1m])", "refId": "A" }]
+    }
+  ],
+  "templating": { "list": [] },
+  "annotations": { "list": [] }
+}
