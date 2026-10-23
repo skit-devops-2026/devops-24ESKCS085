@@ -49,5 +49,5 @@ jobs:
           build-args: |
             COMMIT_SHA=${{ github.sha }}
           tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/skit-devops-2026/devops-24eskcs085:latest
+            ghcr.io/skit-devops-2026/devops-24eskcs085:${{ github.sha }}
