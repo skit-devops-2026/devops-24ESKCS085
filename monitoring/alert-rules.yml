@@ -1,0 +1,19 @@
+groups:
+  - name: interviewx-alerts
+    rules:
+      - alert: InterviewXDown
+        expr: interviewx_up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "interviewX service is down"
+          description: "The interviewx_up metric reports the service as down for more than 1 minute."
+      - alert: InterviewXHighRequestRate
+        expr: rate(interviewx_http_requests_total[5m]) > 10
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Unusually high request rate on interviewX"
+          description: "Requests exceeded 10 per second for 5 minutes."
