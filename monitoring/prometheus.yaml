@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # interviewX Node service - exposes /metrics (see server.js)
+  # In docker compose the target is app:3000; on Kubernetes it is the
+  # interviewx Service. Adjust the target to your environment.
+  - job_name: interviewx
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['app:3000']
