@@ -1,30 +1,23 @@
-# Every team fills in the commands for their own stack.
-# The CI pipeline calls these targets, so the names must not change.
-#
-# Examples:
-#   Node    install: npm ci          test: npm test        build: npm run build
-#   Python  install: pip install -r requirements.txt
-#                                    test: pytest          build: echo "no build step"
-#   Java    install: ./mvnw -B dependency:go-offline
-#                                    test: ./mvnw test     build: ./mvnw package
+# interviewX - Makefile (target names are called by .github/workflows/ci.yml)
 
 .PHONY: install test build run docker-build docker-up
 
 install:
-	@echo "TODO: install dependencies" && exit 1
+	@echo "interviewX service has no external dependencies - nothing to install."
+	@node --version
 
 test:
-	@echo "TODO: run the test suite" && exit 1
+	bash tests/test_app.sh
 
 build:
-	@echo "TODO: build the project" && exit 1
+	@node --check server.js
+	@test -f Dockerfile && test -f docker-compose.yml && test -f monitoring/prometheus.yml && test -f k8s/deployment.yaml && test -f k8s/service.yaml && echo "Build validation passed: service + M5-M7 deliverables present."
 
 run:
-	@echo "TODO: start the app locally" && exit 1
+	node server.js
 
-# Needed from M4 onwards
 docker-build:
-	@echo "TODO: docker build for frontend and backend" && exit 1
+	docker build -t interviewx:latest .
 
 docker-up:
 	docker compose up --build
